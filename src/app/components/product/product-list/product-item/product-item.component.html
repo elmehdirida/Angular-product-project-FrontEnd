@@ -1,0 +1,30 @@
+<tr  *ngIf="product">
+  <td>{{product.id}}</td>
+  <td>{{product.name}}</td>
+  <td>{{product.price}}</td>
+  <td>{{product.quantity}}</td>
+  <td>
+    <span *ngIf="product.selected" class="fa fa-heart "></span>
+    <span *ngIf="!product.selected" class="fa fa-square-o "></span>
+  </td>
+  <td>
+    <span *ngIf="product.available" class="fa fa-check-square "></span>
+    <span *ngIf="!product.available" class="fa fa-square-o "></span>
+  </td>
+  <td>
+    <button (click)="onSelect(product)" type="button" [ngClass]="product.selected ? 'btn-success bg-success' : 'btn-danger bg-danger'" class="btn btn-sm">
+      <span *ngIf="product.selected">Unselect</span>
+      <span *ngIf="!product.selected">select</span>
+    </button>
+  </td>
+  <td>
+    <button class=" btn btn-danger bg-danger" (click)="OnDeleteProduct(product)">
+      <span class="fa fa-trash-o"></span>
+    </button>
+  </td>
+  <td>
+    <button class=" btn btn-primary bg-primary" (click)="OnUpdateProduct(product)">
+      <span class="fa fa-edit"></span>
+    </button>
+  </td>
+</tr>
